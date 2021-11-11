@@ -13,8 +13,6 @@ interface Props {
     isAuthenticated?: boolean,
 }
 
-//const isAuthenticated = isLogin();
-
 const PrivateRoutes: React.FC<Props> = ({ component: Component, isAuthenticated, ...rest }) => {
 
     //-----Redux State-----//
