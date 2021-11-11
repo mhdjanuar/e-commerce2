@@ -30,7 +30,6 @@ const reducer: Reducer<AuthState> = (state = initialState, action) => {
             return { ...state, actionType: actionTypes.LOGIN_FAILED, isLoading: false, error: action.error };
 
         case actionTypes.LOGOUT_SUCCESS:
-            //deleteToken();
             return initialState;
 
         case actionTypes.RESET_ACTION_TYPE:

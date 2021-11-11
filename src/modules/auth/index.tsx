@@ -3,17 +3,14 @@ import { useHistory, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ApplicationState } from '../../store/reducers';
 import { AuthProps } from "./interface";
-// import { login } from "../../utils/token";
 import { login, resetActionType } from "./action";
 
 const Auth: React.FC<AuthProps> = ({actionType, isAuthenticated}) => {
-    let history = useHistory();
     const dispatch = useDispatch()
 
     //-----Redux State-----//
     actionType = useSelector((state: ApplicationState) => state.auth.actionType);
     isAuthenticated = useSelector((state: ApplicationState) => state.auth.isAuthenticated);
-    console.log(isAuthenticated);
 
     useEffect(() => {
         resetActionType();
@@ -21,12 +18,9 @@ const Auth: React.FC<AuthProps> = ({actionType, isAuthenticated}) => {
     
     const goToHome = () => {
         dispatch(login());
-        // login();
-        // history.push('/');
     }
 
     if (isAuthenticated) {
-        resetActionType();
         return <Redirect to="/" />
     }
 

@@ -4,7 +4,7 @@ export const login = () => {
     localStorage.setItem(TOKEN_KEY, 'TestLogin');
 }
 
-export const logout = () => {
+export const deleteToken = () => {
     localStorage.removeItem(TOKEN_KEY);
 }
 

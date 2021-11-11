@@ -1,19 +1,20 @@
 import React, {useState} from 'react';
+import { useDispatch } from 'react-redux';
 import { Menu, Layout } from 'antd';
 import {
     SettingOutlined,
     LoginOutlined,
     HomeOutlined
   } from '@ant-design/icons';
-import { useHistory } from 'react-router';  
-import { logout } from '../../utils/token';
+import { logout } from '../../modules/auth/action';
 
 interface ClickParam {
     key: string;
 }
   
 const Sidebar = () => {
-    let history = useHistory ();
+    const dispatch = useDispatch()
+
     const { Sider } = Layout;
 
     //---State---//
@@ -26,10 +27,9 @@ const Sidebar = () => {
 
     const handleClick = (e: ClickParam) => {
         if (e.key !== 'logout') {
-            alert('in dashboard')
+            alert(`Click ${e.key}`)
           } else {
-            logout()
-            history.push('/login')
+            dispatch(logout())
           }
     };
 
